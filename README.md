@@ -119,7 +119,18 @@ NumericVector compute_coefficients(NumericMatrix X, NumericVector y) {
 }
 ```
 
-This function efficiently computes regression coefficients by solving the normal equations \( X'X \beta = X'y \).
+This function calculates the regression coefficients \( \boldsymbol{\beta} \) by solving the linear system derived from the normal equations:
+
+\[
+\mathbf{X}^\top \mathbf{X} \boldsymbol{\beta} = \mathbf{X}^\top \mathbf{y}.
+\]
+
+Where:
+- \( \mathbf{X}^\top \mathbf{X} \) is the Gram matrix of the predictor matrix \( \mathbf{X} \),
+- \( \mathbf{X}^\top \mathbf{y} \) is the vector of covariances between the predictors and the response \( \mathbf{y} \).
+
+By leveraging Rcpp and R's built-in functions, this approach ensures computational efficiency for solving linear regression problems.
+
 
 ---
 
