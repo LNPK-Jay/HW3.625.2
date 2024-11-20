@@ -123,7 +123,7 @@ This function calculates the regression coefficients \( \boldsymbol{\beta} \) by
 
 $$
 \[
-\mathbf{X}^\top \mathbf{X} \boldsymbol{\beta} = \mathbf{X}^\top \mathbf{y}.
+\mathbf{X}^\top \mathbf{X} \boldsymbol{\beta} = \mathbf{X}^\top \mathbf{y}
 \]
 $$
 
