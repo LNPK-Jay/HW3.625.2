@@ -1,0 +1,131 @@
+---
+title: "introduction"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{introduction}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+# Introduction
+
+The `LinearRegressionR` package provides a set of tools for fitting, summarizing, and evaluating linear regression models. 
+This vignette demonstrates how to use the package, including:
+- Fitting a linear regression model
+- Predicting new values
+- Performing ANOVA
+- Visualizing model diagnostics
+- Comparing the package's performance with base R functions.
+
+```{r setup}
+library(HW3.625.2)
+knitr::opts_chunk$set(collapse = TRUE, comment = "#>")
+library(sas7bdat)
+library(here)
+```
+
+# Simulating Data
+
+First simulate data for demonstration.
+
+```{r simulate-data}
+data <- read.sas7bdat(here("data", "completedata-1.sas7bdat"))
+head(data)
+```
+# Fitting a Model
+Fit a linear regression model using the `linear_regression` function.
+
+```{r fit-model}
+Y <- data$Depression
+X <- data[, c("Fatalism", "Spirituality")]
+fit <- linear_regression(X, Y)
+print(fit$coefficients)
+```
+# Model Summary
+
+Summarize the fitted model using the `summary` function.
+
+```{r summary-model}
+summary.linear_regression(fit)
+```
+# Predicting New Values
+
+Use the `predict` function to predict responses for new data.
+
+```{r predict-values}
+newdata <- data.frame(
+  Fatalism = c(3.5, 4.2),  
+  Spirituality = c(2.1, 3.8)
+)
+predictions <- predict.linear_regression(fit, newdata)
+print(predictions)
+```
+# Performing ANOVA
+
+Evaluate the model using analysis of variance (ANOVA).
+
+```{r anova-analysis}
+anova_results <- anova.linear_regression(fit)
+print(anova_results)
+```
+
+# Comparison with Base R
+
+Compare the coefficients and performance of `LinearRegressionR` with base R's `lm`.
+```{r comparison-baseR}
+fit_lm <- lm(Depression ~ Fatalism + Spirituality, data = data)
+
+# Extract coefficients from both models
+linear_regression_coefficients <- fit$coefficients
+lm_coefficients <- coef(fit_lm)  
+
+# Compare coefficients element-wise
+comparison <- data.frame(
+  Feature = paste0("X", 1:length(linear_regression_coefficients)),
+  LinearRegressionR = linear_regression_coefficients,
+  BaseR = lm_coefficients
+)
+comparison
+
+```
+
+```{r}
+# Comparison of Summary in MyPackage Results
+output_1 <- summary.linear_regression(fit)
+```
+
+```{r}
+# Comparison of Summray in BaseR
+output_2 <- summary(fit_lm)
+print(output_2)
+```
+```{r}
+#compare the prediction output
+#Outcome of linear regression method
+predictions <- predict.linear_regression(fit, newdata)
+
+
+#Outcome of prediction baseR
+lm_predictions <- predict(fit_lm, newdata)
+
+comparison_prediction <- data.frame(
+  Predictions = predictions,
+  BaseR = lm_predictions
+)
+comparison_prediction
+```
+```{r}
+library(microbenchmark)
+benchmark_results <- microbenchmark(
+  Custom = linear_regression(X, Y),
+  BaseR = lm(Depression ~ Fatalism + Spirituality, data = data),
+  times = 100
+)
+print(benchmark_results)
+```
