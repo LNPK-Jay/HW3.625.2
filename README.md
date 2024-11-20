@@ -128,8 +128,8 @@ $$
 $$
 
 Where:
-- $$\( \mathbf{X}^\top \mathbf{X} \)$$ is the Gram matrix of the predictor matrix \( \mathbf{X} \),
-- $$\( \mathbf{X}^\top \mathbf{y} \) $$is the vector of covariances between the predictors and the response $$\( \mathbf{y} \)$$.
+- \($$ \mathbf{X}^\top \mathbf{X} \$$) is the Gram matrix of the predictor matrix \( \mathbf{X} \),
+- \($$\mathbf{X}^\top \mathbf{y} \$$) is the vector of covariances between the predictors and the response \($$ \mathbf{y} \$$).
 
 By leveraging Rcpp and R's built-in functions, this approach ensures computational efficiency for solving linear regression problems.
 
