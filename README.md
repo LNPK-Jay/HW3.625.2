@@ -4,7 +4,7 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of HW3.625.2 package is to provide a implementation of linear regression. This package  includes functions for model fitting, prediction, analysis of variance, and visualization.It is designed to streamline the workflow for linear regression, offering tools to fit models, assess model performance, and visualize results.
+The goal of HW3.625.2 package is to provide a implementation of linear regression. This package  includes functions for model fitting, prediction, analysis of variance, and visualization.It is designed to streamline the workflow for linear regression, offering tools to fit models and assess model performance.
 
 ## Installation
 
@@ -21,39 +21,33 @@ This is a basic example which shows you how to solve a common problem:
 
 ``` r
 library(HW3.625.2)
+library(sas7bdat)
+data <- read.sas7bdat(here("data", "completedata-1.sas7bdat"))
 
-set.seed(47)
-X <- matrix(rnorm(100), ncol=2)  
-y <- rnorm(50)                  
+# Data preparation
+Y <- data$Depression
+X <- data[, c("Fatalism", "Spirituality")]
 
-fit <- linear_regression(X, y)
+# Fit the linear regression model
+fit <- linear_regression(X, Y)                  
 print(fit$coefficients)
-summary(fit)
 
+# Use summary to show the diagnosis imformation
+summary.linear_regression(fit)
 
-# New data for prediction
-new_X <- matrix(rnorm(10), ncol=2)
+# New data
+newdata <- data.frame(
+  Fatalism = c(3.5, 4.2),  
+  Spirituality = c(2.1, 3.8)
+)
 
-# Predict response values
-predictions <- predict(fit, new_X)
+# Predict response values use the new data
+predictions <- predict.linear_regression(fit, newdata)
 print(predictions)
 
 # Perform ANOVA on the fitted model
-anova_results <- anova_function(fit)
+anova_results <- anova.linear_regression(fit)
 print(anova_results)
-
-#plot all the figures
-plot(model)
-
-#Generate residual plot only 
-plot(model, type = "residual")
-
-#Generate QQ plot only
-plot(model, type = "qq")
-
-#Generate standardized residual plot only
-plot(model, type = "standardized")
-
 
 ```
 
