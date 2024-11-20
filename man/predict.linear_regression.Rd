@@ -30,5 +30,4 @@ model <- linear_regression(X, y)
 newdata <- data.frame(x1 = c(7, 8), x2 = c(9, 10))
 predictions <- predict.linear_regression(model, newdata)
 print(predictions)
-
 }

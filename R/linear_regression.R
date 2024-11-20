@@ -21,15 +21,23 @@
 
 linear_regression <- function(X, y) {
   if (is.vector(X)) X <- data.frame(X)
+
+  # Add an intercept column if not already present
   if (!any(colnames(X) == "Intercept")) X <- cbind(Intercept = 1, as.matrix(X))
 
+  # Check that the number of rows in X matches the length of y
   if (nrow(X) != length(y)) stop("Number of rows in X must match the length of y")
 
+  # Compute regression coefficients(Where compute_coefficient fucntion is defined in the compute_coefficients.cpp)
   betahat <- compute_coefficients(X, y)
+  # Compute residuals(where compute_residuals function is defined in the compute-residuals.cpp)
+  residuals <- compute_residuals(X, y, betahat)
+
   names(betahat) <- colnames(X)
 
+  # Return a structured object with the class "linear_regression"
   structure(
-    list(coefficients = as.vector(betahat), X = X, y = y),
+    list(coefficients = as.vector(betahat), X = X, y = y, residuals = residuals),
     class = "linear_regression"
   )
 }

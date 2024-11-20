@@ -26,8 +26,6 @@ This vignette demonstrates how to use the package, including:
 ```{r setup}
 library(HW3.625.2)
 knitr::opts_chunk$set(collapse = TRUE, comment = "#>")
-library(sas7bdat)
-library(here)
 ```
 
 # Simulating Data
@@ -35,7 +33,7 @@ library(here)
 First simulate data for demonstration.
 
 ```{r simulate-data}
-data <- read.sas7bdat(here("data", "completedata-1.sas7bdat"))
+data(completedata)
 head(data)
 ```
 # Fitting a Model
@@ -92,7 +90,6 @@ comparison <- data.frame(
   BaseR = lm_coefficients
 )
 comparison
-
 ```
 
 ```{r}
@@ -128,4 +125,11 @@ benchmark_results <- microbenchmark(
   times = 100
 )
 print(benchmark_results)
+```
+
+```{r}
+# Compare Anova with baseR
+anova_results <- anova.linear_regression(fit)
+print(anova_results)
+anova(fit_lm)
 ```

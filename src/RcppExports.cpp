@@ -22,9 +22,76 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// compute_residuals
+NumericVector compute_residuals(NumericMatrix X, NumericVector y, NumericVector betahat);
+RcppExport SEXP _HW3_625_2_compute_residuals(SEXP XSEXP, SEXP ySEXP, SEXP betahatSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< NumericMatrix >::type X(XSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type y(ySEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type betahat(betahatSEXP);
+    rcpp_result_gen = Rcpp::wrap(compute_residuals(X, y, betahat));
+    return rcpp_result_gen;
+END_RCPP
+}
+// calculateSEBetaHat
+NumericVector calculateSEBetaHat(NumericMatrix X, double sigma_squared);
+RcppExport SEXP _HW3_625_2_calculateSEBetaHat(SEXP XSEXP, SEXP sigma_squaredSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< NumericMatrix >::type X(XSEXP);
+    Rcpp::traits::input_parameter< double >::type sigma_squared(sigma_squaredSEXP);
+    rcpp_result_gen = Rcpp::wrap(calculateSEBetaHat(X, sigma_squared));
+    return rcpp_result_gen;
+END_RCPP
+}
+// calculateSigmaSquared
+double calculateSigmaSquared(NumericVector residuals, int df);
+RcppExport SEXP _HW3_625_2_calculateSigmaSquared(SEXP residualsSEXP, SEXP dfSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< NumericVector >::type residuals(residualsSEXP);
+    Rcpp::traits::input_parameter< int >::type df(dfSEXP);
+    rcpp_result_gen = Rcpp::wrap(calculateSigmaSquared(residuals, df));
+    return rcpp_result_gen;
+END_RCPP
+}
+// calculateRSquared
+List calculateRSquared(NumericVector y, NumericVector residuals);
+RcppExport SEXP _HW3_625_2_calculateRSquared(SEXP ySEXP, SEXP residualsSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< NumericVector >::type y(ySEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type residuals(residualsSEXP);
+    rcpp_result_gen = Rcpp::wrap(calculateRSquared(y, residuals));
+    return rcpp_result_gen;
+END_RCPP
+}
+// calculateCoefficientsStats
+NumericMatrix calculateCoefficientsStats(NumericVector coefficients, NumericVector se_betahat, int df);
+RcppExport SEXP _HW3_625_2_calculateCoefficientsStats(SEXP coefficientsSEXP, SEXP se_betahatSEXP, SEXP dfSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< NumericVector >::type coefficients(coefficientsSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type se_betahat(se_betahatSEXP);
+    Rcpp::traits::input_parameter< int >::type df(dfSEXP);
+    rcpp_result_gen = Rcpp::wrap(calculateCoefficientsStats(coefficients, se_betahat, df));
+    return rcpp_result_gen;
+END_RCPP
+}
 
 static const R_CallMethodDef CallEntries[] = {
     {"_HW3_625_2_compute_coefficients", (DL_FUNC) &_HW3_625_2_compute_coefficients, 2},
+    {"_HW3_625_2_compute_residuals", (DL_FUNC) &_HW3_625_2_compute_residuals, 3},
+    {"_HW3_625_2_calculateSEBetaHat", (DL_FUNC) &_HW3_625_2_calculateSEBetaHat, 2},
+    {"_HW3_625_2_calculateSigmaSquared", (DL_FUNC) &_HW3_625_2_calculateSigmaSquared, 2},
+    {"_HW3_625_2_calculateRSquared", (DL_FUNC) &_HW3_625_2_calculateRSquared, 2},
+    {"_HW3_625_2_calculateCoefficientsStats", (DL_FUNC) &_HW3_625_2_calculateCoefficientsStats, 3},
     {NULL, NULL, 0}
 };
 

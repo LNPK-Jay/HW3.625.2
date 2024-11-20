@@ -5,7 +5,6 @@
 #' residuals, coefficients, and goodness of fit.
 #'
 #' @param object An object of class `linear_regression` created by the `linear_regression` function.
-#' @param ... Additional arguments
 #' @return A list containing:
 #'   \item{Call}{The matched function call.}
 #'   \item{Residuals}{Summary statistics of the residuals.}
@@ -23,36 +22,37 @@
 #' model <- linear_regression(X, y)
 #' summary(model)
 #' @export
-summary.linear_regression <- function(object, ...) {
+#'
+summary.linear_regression <- function(object) {
 
+  # Get the components from the linear regression model object
   coefficients <- object$coefficients
   X <- object$X
   y <- object$y
+  residuals <- object$residuals
+  #fitted_values <- as.vector(X %*% coefficients)
 
-
-  fitted_values <- as.vector(X %*% coefficients)
-  residuals <- as.vector(y - fitted_values)
-
+  # Compute degrees of freedom
   n <- length(y)
   p <- length(coefficients)
   df <- n - p
 
-
+  # Estimate residual variance
   sigma_squared <- sum(residuals^2) / df
 
-
+  # Calculate standard errors, t-statistics, and p-values for coefficients
   XTX_inv <- solve(t(X) %*% X)
   se_betahat <- sqrt(diag(XTX_inv) * sigma_squared)
   t_statistic <- coefficients / se_betahat
   p_value <- 2 * (1 - pt(abs(t_statistic), df))
 
-
+  # Calculate R^2 and adjusted R^2
   total_variance <- sum((y - mean(y))^2)
   explained_variance <- total_variance - sum(residuals^2)
   r_squared <- explained_variance / total_variance
   adj_r_squared <- 1 - (1 - r_squared) * (n - 1) / df
 
-
+  #print the summary of the model
   cat("Call:\n")
   print(object$call)
   cat("\nResiduals:\n")

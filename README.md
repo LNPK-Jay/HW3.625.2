@@ -133,9 +133,10 @@ vignette("HW3.625.2")
 ```
 
 The vignette covers:
-- Comparison with base R’s `lm()` function.
+- Comparison with base R’s 'lm()' function.
+- Comparison with base R’s 'summarry()', 'anova()' function.
 - Real-world data applications.
-- Advanced use cases like ANOVA and prediction.
+- Use benchmark to compare the efficiency between 'lm' function and linear regression model in this package.
 
 ---
 

@@ -5,3 +5,23 @@ compute_coefficients <- function(X, y) {
     .Call(`_HW3_625_2_compute_coefficients`, X, y)
 }
 
+compute_residuals <- function(X, y, betahat) {
+    .Call(`_HW3_625_2_compute_residuals`, X, y, betahat)
+}
+
+calculateSEBetaHat <- function(X, sigma_squared) {
+    .Call(`_HW3_625_2_calculateSEBetaHat`, X, sigma_squared)
+}
+
+calculateSigmaSquared <- function(residuals, df) {
+    .Call(`_HW3_625_2_calculateSigmaSquared`, residuals, df)
+}
+
+calculateRSquared <- function(y, residuals) {
+    .Call(`_HW3_625_2_calculateRSquared`, y, residuals)
+}
+
+calculateCoefficientsStats <- function(coefficients, se_betahat, df) {
+    .Call(`_HW3_625_2_calculateCoefficientsStats`, coefficients, se_betahat, df)
+}
+
