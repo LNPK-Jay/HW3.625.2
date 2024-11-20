@@ -4,13 +4,12 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-The **HW3.625.2** package provides a high-performance implementation of linear regression using R and Rcpp. This package includes functionality for:
+The **HW3.625.2** package provides a implementation of linear regression which is faster than the basedR 'lm()' function, using R and Rcpp. This package includes functionality for:
 
 - **Model fitting:** Fit linear regression models efficiently with Rcpp-powered computations.
 - **Prediction:** Generate predictions for new data using fitted models.
 - **Model diagnostics:** Summarize regression results with diagnostic information.
 - **Analysis of Variance (ANOVA):** Perform ANOVA to assess model quality.
-- **Visualization:** Streamlined tools for interpreting results.
 
 The package aims to make linear regression analysis more efficient and user-friendly, leveraging Rcpp for computational speed.
 
