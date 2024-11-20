@@ -4,8 +4,7 @@ Version: 0.0.0.9000
 Authors@R: 
     person("Jason", "Ji", email = "jaosnjjw@umich.edu", role = c("aut", "cre"))
 Description: The **HW3.625.2** package provides an efficient implementation of linear regression, utilizing Rcpp for computational speed. It offers functionality for model fitting, prediction, diagnostic summaries, and ANOVA, making regression analysis more accessible and performant for real-world applications.The package is built to work smoothly with R workflows. It offers more efficient computations, and reliable performance testing 
-License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
-    license
+License: MIT
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.1
