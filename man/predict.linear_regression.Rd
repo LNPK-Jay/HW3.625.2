@@ -4,15 +4,13 @@
 \alias{predict.linear_regression}
 \title{Predict function for linear regression model}
 \usage{
-\method{predict}{linear_regression}(object, newdata, ...)
+\method{predict}{linear_regression}(object, newdata)
 }
 \arguments{
 \item{object}{An object of class \code{linear_regression} created by the \code{linear_regression} function.}
 
 \item{newdata}{A data frame of new input data. It should have the same column names
 as the independent variables used in the model fitting, excluding the intercept.}
-
-\item{...}{Additional arguments (currently ignored).}
 }
 \value{
 A vector of predicted values.
@@ -25,8 +23,6 @@ This function calculates predictions for new data based on a linear regression m
 X <- data.frame(x1 = c(1, 2, 3), x2 = c(4, 5, 6))
 y <- c(10, 20, 30)
 model <- linear_regression(X, y)
-
-# Predict for new data
 newdata <- data.frame(x1 = c(7, 8), x2 = c(9, 10))
 predictions <- predict.linear_regression(model, newdata)
 print(predictions)

@@ -3,8 +3,5 @@
 S3method(predict,linear_regression)
 S3method(summary,linear_regression)
 export(linear_regression)
-export(summary.linear_regression)
-export(predict.linear_regression)
-export(anova.linear_regression)
 importFrom(Rcpp,sourceCpp)
 useDynLib(HW3.625.2, .registration = TRUE)

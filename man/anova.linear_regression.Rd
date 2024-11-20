@@ -13,7 +13,7 @@
 A summary table of the ANOVA analysis.
 }
 \description{
-This file contains a function for performing an ANOVA (Analysis of Variance) for a linear regression model.
+This function performs an ANOVA (Analysis of Variance) for a linear regression model.
 }
 \examples{
 model <- linear_regression(X, y)

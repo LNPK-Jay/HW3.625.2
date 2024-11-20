@@ -4,12 +4,10 @@
 \alias{summary.linear_regression}
 \title{Summary for Linear Regression model}
 \usage{
-\method{summary}{linear_regression}(object, ...)
+\method{summary}{linear_regression}(object)
 }
 \arguments{
 \item{object}{An object of class \code{linear_regression} created by the \code{linear_regression} function.}
-
-\item{...}{Additional arguments}
 }
 \value{
 A list containing:
