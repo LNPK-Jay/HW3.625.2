@@ -1,4 +1,3 @@
-
 # HW3.625.2: A Linear Regression R Package
 
 <!-- badges: start -->
@@ -117,7 +116,7 @@ NumericVector compute_coefficients(NumericMatrix X, NumericVector y) {
 }
 ```
 
-This function calculates the regression coefficients \( $$\boldsymbol{\beta} \$$) by solving the linear system derived from the normal equations:
+This function calculates the regression coefficients \($$\boldsymbol{\beta} \$$) by solving the linear system derived from the normal equations:
 
 $$
 \[
