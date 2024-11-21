@@ -93,7 +93,7 @@ bench::mark(
 )
 ```
 
-This demonstrates the efficiency and correctness of the package, ensuring consistent results with significant speed gains.
+The result demonstrates the efficiency and correctness of the package, which is faster than 'lm()' fucntion is base R, ensuring consistent results with significant speed gains.
 
 ---
 
