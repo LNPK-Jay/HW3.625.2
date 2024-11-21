@@ -1,5 +1,5 @@
 # HW3.625.2: A Linear Regression R Package
-
+[![R-CMD-check](https://github.com/LNPK-Jay/HW3.625.2/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/LNPK-Jay/HW3.625.2/actions/workflows/R-CMD-check.yaml)
 <!-- badges: start -->
 <!-- badges: end -->
 
