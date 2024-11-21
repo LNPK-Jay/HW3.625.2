@@ -10,7 +10,7 @@ The **HW3.625.2** package provides a implementation of linear regression which i
 - **Model diagnostics:** Summarize regression results with diagnostic information.
 - **Analysis of Variance (ANOVA):** Perform ANOVA to assess model quality.
 
-The package aims to make linear regression analysis more efficient and user-friendly, leveraging Rcpp for computational speed.
+The package aims to make linear regression analysis more efficient and user-friendly, utilizing Rcpp for computational speed.
 
 ---
 

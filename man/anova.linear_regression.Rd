@@ -16,7 +16,8 @@ A summary table of the ANOVA analysis.
 This function performs an ANOVA (Analysis of Variance) for a linear regression model.
 }
 \examples{
+X <- matrix(c(1, 2, 3), ncol = 1)
+y <- c(10, 20, 30)
 model <- linear_regression(X, y)
 anova(model)
-
 }

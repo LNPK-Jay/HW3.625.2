@@ -11,12 +11,11 @@
 #'
 #' @examples
 #' # Example usage
-#' X <- matrix(c(1, 2, 3, 4, 5, 6), ncol = 2)
+#' X <- matrix(c(1, 2, 3), ncol = 1)
 #' y <- c(10, 20, 30)
 #' model <- linear_regression(X, y)
-#' model$coefficients
+#' print(model$coefficients)
 #' @export
-
 
 
 linear_regression <- function(X, y) {

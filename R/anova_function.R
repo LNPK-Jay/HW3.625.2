@@ -5,9 +5,12 @@
 #' @param object An object of class `linear_regression` created by the `linear_regression` function.
 #' @return A summary table of the ANOVA analysis.
 #' @examples
+#' X <- matrix(c(1, 2, 3), ncol = 1)
+#' y <- c(10, 20, 30)
 #' model <- linear_regression(X, y)
 #' anova(model)
-#'
+#' @export
+
 
 anova.linear_regression <- function(object) {
   # Check type of the object

@@ -6,10 +6,8 @@
 #' @param newdata A data frame of new input data. It should have the same column names
 #' as the independent variables used in the model fitting, excluding the intercept.
 #' @return A vector of predicted values.
-#'
 #' @examples
-#' # Fit a model
-#' X <- data.frame(x1 = c(1, 2, 3), x2 = c(4, 5, 6))
+#' X <- data.frame(x1 = c(1, 2, 3), x2 = c(2, 4, 6.1))
 #' y <- c(10, 20, 30)
 #' model <- linear_regression(X, y)
 #' newdata <- data.frame(x1 = c(7, 8), x2 = c(9, 10))
