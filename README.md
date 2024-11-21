@@ -45,11 +45,9 @@ Here’s an example workflow demonstrating the main functionalities of the packa
 
 ```r
 library(HW3.625.2)
-library(sas7bdat)
-library(here)
 
-# Load the dataset
-data <- read.sas7bdat(here("data", "completedata-1.sas7bdat"))
+# Load the dataset in the package
+data(completedata)
 
 # Data preparation
 Y <- data$Depression
@@ -119,7 +117,7 @@ NumericVector compute_coefficients(NumericMatrix X, NumericVector y) {
 }
 ```
 
-This function calculates the regression coefficients \( \boldsymbol{\beta} \) by solving the linear system derived from the normal equations:
+This function calculates the regression coefficients \( $$\boldsymbol{\beta} \$$) by solving the linear system derived from the normal equations:
 
 $$
 \[
