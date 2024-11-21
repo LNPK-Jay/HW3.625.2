@@ -19,8 +19,10 @@ The package aims to make linear regression analysis more efficient and user-frie
 You can install the development version of **HW3.625.2** from [GitHub](https://github.com/) with:
 
 ```r
-# Install the package using pak
-pak::pak("LNPK-Jay/HW3.625.2")
+# install package from github
+install.packages("devtools")
+library(devtools)
+install_github("LNPK-Jay/HW3.625.2")
 ```
 
 Ensure you have Rcpp installed since the package uses it for matrix computations.
