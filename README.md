@@ -142,7 +142,7 @@ Where:
 - \($$\mathbf{X}^\top \mathbf{X}\$$) is the Gram matrix of the predictor matrix \($$\mathbf{X}\$$).
 - \($$\mathbf{X}^\top \mathbf{Y}\$$) is the vector of covariances between the predictors and the response \($$\mathbf{Y}\$$).
 
-By leveraging Rcpp and R's built-in functions, this approach ensures computational efficiency for solving linear regression problems.
+By utilizing Rcpp and R's built-in functions, this approach ensures computational efficiency for solving linear regression problems.
 
 
 
