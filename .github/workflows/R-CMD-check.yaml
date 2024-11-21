@@ -25,6 +25,10 @@ jobs:
           Rscript -e 'install.packages("remotes")'
           Rscript -e 'remotes::install_deps(dependencies = TRUE)'
 
+      - name: Install Pandoc
+        run: |
+          sudo apt-get install -y pandoc
+
       - name: Run R CMD check
         run: |
           R CMD build .
