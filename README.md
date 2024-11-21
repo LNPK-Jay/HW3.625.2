@@ -153,9 +153,9 @@ The vignette covers:
 ## Future Enhancements
 
 Planned updates include:
-- Support for logistic regression and other generalized linear models.
-- Improved visualization tools for regression diagnostics.
-- Additional benchmarking with larger datasets.
+- Support visualization tools for regression diagnostics.
+- Support for comparison of different models.
+- Provide diagnostic information about the influence of data points on the model.
 
 We welcome contributions and feedback via the [GitHub repository](https://github.com/LNPK-Jay/HW3.625.2).
 
